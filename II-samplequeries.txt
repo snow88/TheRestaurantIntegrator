@@ -1,0 +1,37 @@
+##SOME SAMPLE QUERIES TO DEMONSTRATE FUNCTIONALITY
+
+
+insert into reservation(c_id) values(221);
+insert into reservation(c_id) values(456);
+
+insert into receipts(tot_amt,status,c_id,booking_date,booking_time,e_id) values (5000,'Unpaid',221,);    ##receipt based on above reservation
+insert into receipts(tot_amt,status,c_id,booking_date,booking_time,e_id) values ();
+insert into receipts(tot_amt,status,c_id,booking_date,booking_time,e_id) values ();
+insert into receipts(tot_amt,status,c_id,booking_date,booking_time,e_id) values ();
+
+select * from employee;
+select * from past_year_hire_stats;
+
+select * from customer;
+select * from priority_customers;
+
+insert into customer values (111,"Katy Swift","24 D Palm Lane",9759123456,"katyswift");    ##invalid email trigger demonstration
+insert into customer values (111,"Katy Swift","24 D Palm Lane",759123,"katyswift@mail.com");    ##invalid mobile number trigger for customer demonstration
+insert into customer values (111,"Katy Swift","24 D Palm Lane",9759123456,"katyswift@mail.com");
+
+insert into date_time_slot values(5,'2017-10-20','20:30:00','Rush');   ##expired date trigger demonstration
+insert into date_time_slot values(5,'2017-12-2','20:30:00','Rush');
+
+insert into employee values(11,"James",2,11548856,"12 Sezville",20000,'2004-11-07');  
+insert into employee values(11,"James",2,1199548856,"12 Sezville",20000,'2004-11-07');
+
+insert into reservation(c_id) values(888);   ##non-existent customer trying to make a reservation sets off foreign key error
+
+
+##new receipt generation post dinner by a customer
+##customer gives her/his name; let's say it is Kelly
+select c_id, c_name from customer where c_name="Kelly";    ##corresponding c_id ascertained via this
+select * from books where c_id=      ;                      ##ascertain corresponding booking details now
+insert into receipts(tot_amt,status,c_id,booking_date,booking_time,e_id) values ();        ##use above details to generate receipt
+
+select * from current_bookings;
